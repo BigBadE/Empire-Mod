@@ -7,35 +7,29 @@ using UnityEngine;
 using Verse;
 using System.Xml;
 
-namespace FactionColonies
-{
-public class BiomeResourceDef : Def, IExposable
-{
-    public List<double> BaseProductionAdditive = new List<double>();
-    public List<double> BaseProductionMultiplicative = new List<double>();
-    public bool canSettle;
+namespace FactionColonies {
+public class BiomeResourceDef : Def, IExposable {
+  public List<double> BaseProductionAdditive = new List<double>();
+  public List<double> BaseProductionMultiplicative = new List<double>();
+  public bool canSettle;
 
-    public BiomeResourceDef()
-    {
+  public BiomeResourceDef() {}
 
-    }
-
-    public void ExposeData()
-    {
-        Scribe_Collections.Look<double>(ref BaseProductionAdditive, "BaseProductionAdditive", LookMode.Value);
-        Scribe_Collections.Look<double>(ref BaseProductionAdditive, "BaseProductionMultiplicative", LookMode.Value);
-        Scribe_Values.Look<bool>(ref canSettle, "canSettle");
-    }
+  public void ExposeData() {
+    Scribe_Collections.Look<double>(ref BaseProductionAdditive,
+                                    "BaseProductionAdditive", LookMode.Value);
+    Scribe_Collections.Look<double>(ref BaseProductionAdditive,
+                                    "BaseProductionMultiplicative",
+                                    LookMode.Value);
+    Scribe_Values.Look<bool>(ref canSettle, "canSettle");
+  }
 }
 
-
 [DefOf]
-public class BiomeResourceDefOf
-{
-    public static BiomeResourceDef defaultBiome;
-    static BiomeResourceDefOf()
-    {
-        DefOfHelper.EnsureInitializedInCtor(typeof(BiomeResourceDefOf));
-    }
+public class BiomeResourceDefOf {
+  public static BiomeResourceDef defaultBiome;
+  static BiomeResourceDefOf() {
+    DefOfHelper.EnsureInitializedInCtor(typeof(BiomeResourceDefOf));
+  }
 }
 }
